@@ -1,61 +1,62 @@
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from langchain_groq import ChatGroq  
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import PydanticOutputParser 
-from tools import search_tool
-from langchain.agents import create_tool_calling_agent
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_classic.agents import AgentExecutor, create_tool_calling_agent
+from tools import search_tool, wikipedia_tool
 
-load_dotenv() 
+load_dotenv()
 
-class ResponseSchema(BaseModel): # how u want the output to be displayed
-    answer: str 
-    summary : str
-    source : str
-    tools_used : list[str]
+
+class ResponseSchema(BaseModel):
+    answer: str = Field(description="Direct answer to the query")
+    summary: str = Field(description="Summary of facts")
+    source: str = Field(description="Sources used")
+    tools_used: list[str] = Field(description="List of tool names used")
 
 
 llm = ChatGroq(
-    model="openai/gpt-oss-120b", # basically the loading of the model 
+    model="openai/gpt-oss-120b",
     temperature=0
 )
 
-parser = PydanticOutputParser(pydantic_object=ResponseSchema) # u are take the output and format it the way u want it to display
+tools = [search_tool, wikipedia_tool]
 
-prompt = ChatPromptTemplate.from_messages(
+agent_prompt = ChatPromptTemplate.from_messages(
     [
-        ("system",
-        """
-        You are a generative AI and will generate responses to user queries.
-        Wrap the output in this format and provide no other text:
-        {format_instructions}
-        """
-        ),
-        ("human", "{query}")
+        ("system", "You are a helpful research assistant. Use tools when necessary to answer the query."),
+        ("human", "{query}"),
+        MessagesPlaceholder(variable_name="agent_scratchpad"),
     ]
-).partial(format_instructions=parser.get_format_instructions())
-
-
-tools = [search_tool] # list of tools that u want to use in the agent
-
-
-agent = create_tool_calling_agent( # making the agent 
-    llm=llm,
-    promt=prompt,
-    tools=[search_tool]
 )
 
+agent = create_tool_calling_agent(
+    llm=llm,
+    prompt=agent_prompt,
+    tools=tools,
+)
 
-chain = prompt | llm | parser  # chain the prompt, model, and output parser directly
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
+structured_llm = llm.with_structured_output(ResponseSchema)
 
-# Run the chain
-result = chain.invoke({"query": "What is the capital of France?"})
-print(result)
-print("Answer:", result.answer)
+formatter_prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", "Structure the raw research notes into the specified format."),
+        ("human", "User Query: {query}\n\nResearch Notes:\n{raw_notes}"),
+    ]
+)
 
-try:
-    structured_output = parser.parse(result.get("output")[0]["text"]) # structured output is the output of the model in the format we want it to be displayed
-    print(structured_output)
-except Exception as e:
-    print(f"Error parsing structured output: {e}")
+formatting_chain = formatter_prompt | structured_llm
+
+query = input("Enter your query: ")
+
+raw_result = agent_executor.invoke({"query": query})
+structured_output = formatting_chain.invoke(
+    {
+        "query": query,
+        "raw_notes": raw_result["output"],
+    }
+)
+
+print(structured_output)

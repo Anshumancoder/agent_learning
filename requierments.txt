@@ -1,6 +1,8 @@
-langchain 
+langchain
+langchain-classic
 wikipedia
-langchain-community 
+langchain-community
+ddgs
 langchain-groq
 python-dotenv
-pydantic 
+pydantic
