@@ -1,10 +1,14 @@
+import os
 import wikipedia
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_core.tools import Tool
 from datetime import datetime
 
-def history(data: str, filename: str = "research_output.txt"):
+MEMORY_FILE = "research_output.txt"
+
+#this is the function which saves the output to a text file
+def history(data: str, filename: str = MEMORY_FILE) -> str:
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     formatted_text = f"--- Research Output ---\nTimestamp: {timestamp}\n\n{data}\n\n"
 
@@ -13,17 +17,14 @@ def history(data: str, filename: str = "research_output.txt"):
     
     return f"Data successfully saved to {filename}"
 
-
 save_tool = Tool(
     name="history",
     func=history,
-    description="Save the research output to a text file with a timestamp. Useful for keeping a record of findings.",
+    description="Save research findings to text file.",
 )
 
 
-# Set User-Agent properly to avoid 403 Forbidden / JSONDecodeError
 wikipedia.set_user_agent("ResearchAssistantAgent/1.0 (contact@example.com)")
-
 search_engine = DuckDuckGoSearchRun()
 
 search_tool = Tool(
@@ -46,6 +47,16 @@ wikipedia_tool = Tool(
     description="Search Wikipedia for background facts and encyclopedia details.",
 )
 
-def save_history(data: str) -> str:
-    # Your save_history logic here
-    return "History saved successfully."
+#this loads the file history
+def load_file_history(filename: str = MEMORY_FILE) -> str:
+    if not os.path.exists(filename):
+        return "No prior history recorded."
+    with open(filename, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+    return content if content else "No prior history recorded."
+
+def append_interaction(query: str, response: str, filename: str = MEMORY_FILE) -> None:
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    entry = f"--- Interaction [{timestamp}] ---\nUser Query: {query}\nResponse: {response}\n\n"
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write(entry)
