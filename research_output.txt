@@ -1,0 +1,126 @@
+--- Research Output ---
+Timestamp: 2026-10-02 16:58:10
+
+Query: jesus
+Answer: ### Jesus of Nazareth (c. 6 BC – AD 30/33)
+
+**Historical Context**
+- 1st‑century Jewish preacher and religious leader in Roman‑controlled Judea.
+- Virtually all modern scholars agree he existed, though details of his life are debated.
+
+**Life and Ministry**
+- Baptized by John the Baptist; spent 40 days in the wilderness before beginning public ministry.
+- Taught in parables, performed healings and miracles, and gathered twelve apostles.
+- Primary accounts are the four canonical Gospels (Matthew, Mark, Luke, John).
+
+**Crucifixion and Resurrection**
+- Arrested in Jerusalem, tried before the Sanhedrin, handed to Pontius Pilate, and crucified.
+- Christians believe his death was a sacrificial atonement.
+- According to Christian doctrine, he rose from the dead on the third day (Resurrection) and later ascended to Heaven.
+
+**Celebrations**
+- Birth: Christmas (December 25).
+- Crucifixion: Good Friday.
+- Resurrection: Easter.
+
+**Religious Perspectives**
+- **Christianity**: Central figure; regarded as the incarnation of God the Son and the awaited Messiah.
+- **Islam**: Recognized as the prophet ʿĪsā, a messiah born of the Virgin Mary, but not divine; Muslims deny his crucifixion, teaching that God raised him alive.
+- **Judaism**: Rejects Jesus as the Messiah, citing unmet messianic prophecies and lack of divine status.
+
+**Key Points**
+- Jesus is a pivotal figure across multiple religions, each interpreting his nature and role differently.
+- Historical consensus affirms his existence; theological interpretations vary widely.
+Summary: Jesus of Nazareth was a 1st‑century Jewish preacher whose life is recorded in the Gospels. He was baptized, taught, performed miracles, and was crucified under Pontius Pilate. Christians view him as divine and resurrected; Muslims honor him as a prophet but deny his divinity and crucifixion; Judaism rejects him as the Messiah. Scholars agree he existed, though details are debated. His birth, death, and resurrection are commemorated in Christian holidays.
+Sources: Research notes provided by the user.
+
+
+--- Research Output ---
+Timestamp: 2026-10-02 16:58:25
+
+Query: mango
+Answer: # Mango (Mangifera indica) – Structured Overview
+
+## 1. Botanical Classification
+- **Family:** Anacardiaceae (same family as cashew and pistachio)
+- **Genus & Species:** *Mangifera indica*
+
+## 2. Origin & History
+- **Native range:** South‑Asia – present‑day India, Bangladesh, Myanmar
+- **Cultivation history:** >4,000 years of domestication and selection
+
+## 3. Global Production
+- **Annual production:** ~ 55 million tonnes (Mt)
+- **Top producers:** India, China, Thailand, Indonesia, Pakistan
+
+## 4. Fruit Characteristics
+- **Type:** Large drupe, 5–25 cm long
+- **Skin colour:** Green → yellow, orange, or red when ripe
+- **Flesh:** Sweet‑tart, aromatic, 60–80 % water
+
+## 5. Nutrient Profile (per 100 g fresh fruit)
+| Component | Amount | % Daily Value* |
+|-----------|--------|----------------|
+| Energy | 60 kcal | – |
+| Protein | 0.8 g | – |
+| Fat | 0.4 g | – |
+| Carbohydrate | 15 g | – |
+| Dietary fiber | 1.7 g | ~ 7 % |
+| Vitamin C | 36 mg | 36 % |
+| Vitamin A (β‑carotene) | – | significant |
+| Folate | – | – |
+| Potassium | – | – |
+*Based on a 2,000 kcal diet.
+
+## 6. Health Benefits
+- **Antioxidant polyphenols** (e.g., mangiferin) → support immune function, skin health, and may aid blood‑sugar regulation.
+- **Dietary fiber** → promotes digestive health.
+- **Vitamins & minerals** → contribute to overall micronutrient intake.
+
+## 7. Major Commercial Varieties
+| Variety | Origin / Main Growing Areas | Notable Traits |
+|---------|----------------------------|----------------|
+| Alphonso | India | Highly aromatic, rich flavor, premium market price |
+| Tommy Ata | Mexico | Large, seed‑less, sweet flesh |
+| Kent | USA / Peru | Late‑season, low‑fiber, good for processing |
+| Keitt | Florida (USA) | Remains green when ripe, firm flesh, good shelf‑life |
+
+## 8. Cultivation Basics
+- **Climate:** Tropical/subtropical, 10–30 °C
+- **Rainfall:** 1,000–2,500 mm annually, well‑drained soils
+- **Tree maturity:** 5–8 years to first fruit; productive for 30–40 years
+- **Spacing & pruning:** Typically 8–10 m between trees; regular pruning improves light penetration.
+
+## 9. Harvest & Post‑Harvest Handling
+- **Harvest timing:** Fruit picked mature but still firm.
+- **Ripening:** Ethylene‑induced at 20–25 °C for 2–5 days.
+- **Handling:** Gentle handling to avoid bruising; rapid cooling extends shelf‑life.
+
+## 10. Culinary Uses
+- Fresh slices, smoothies, juices
+- Chutneys, pickles, salads
+- Dried “mango strips” (dehydrated snack)
+- Desserts (ice‑cream, sorbets, cakes)
+- Savory dishes (curries, salsas)
+
+## 11. Economic Importance
+- **Livelihoods:** Supports millions of small‑holder farmers worldwide.
+- **Export value:** > US$ 3 billion annually.
+- **Value‑added products:** Juice, puree, dried fruit, essential oils.
+
+---
+**Sources**: FAO crop statistics; USDA Nutrient Database; peer‑reviewed horticulture literature.
+
+Summary: Mango (*Mangifera indica*) is a tropical fruit from the Anacardiaceae family, native to South‑Asia and cultivated for over 4,000 years. Global production is about 55 Mt, led by India, China, Thailand, Indonesia, and Pakistan. The fruit is a large, sweet‑tart drupe rich in vitamin C, vitamin A, fiber, and antioxidant polyphenols like mangiferin, offering immune, skin, and blood‑sugar benefits. Major varieties include Alphonso, Tommy Ata, Kent, and Keitt. Mango trees need a warm, well‑drained climate, mature in 5–8 years, and remain productive for decades. Harvested firm, they ripen with ethylene. Culinary uses span fresh consumption, smoothies, chutneys, dried strips, and savory dishes. Economically, mangoes provide livelihoods for millions and generate over US$ 3 billion in export value each year.
+Sources: FAO crop statistics; USDA Nutrient Database; peer‑reviewed horticulture literature.
+
+
+--- Research Output ---
+Timestamp: 2026-10-02 17:06:13
+
+Query: what is 1+1
+Answer: 1 + 1 = 2
+Summary: The provided research notes state that the sum of 1 and 1 equals 2.
+Sources: Research Notes
+
+

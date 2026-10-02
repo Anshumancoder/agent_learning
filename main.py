@@ -1,3 +1,5 @@
+import tkinter as tk
+from tkinter import simpledialog
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from langchain_groq import ChatGroq
@@ -12,7 +14,6 @@ class ResponseSchema(BaseModel):
     answer: str = Field(description="Direct answer to the query")
     summary: str = Field(description="Summary of facts")
     source: str = Field(description="Sources used")
-    tools_used: list[str] = Field(description="List of tool names used")
 
 
 # this is our LLM (Groq)
@@ -28,7 +29,7 @@ agent_prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a helpful research assistant. "
+            "You are a helpful research assistant tht gives short(10 - 20 lines) and precise answers. "
             "Below is the persistent file history of past interactions. "
             "Use it as reference whenever you need past memory:\n\n"
             "{file_history}\n\n"
@@ -62,11 +63,39 @@ formatter_prompt = ChatPromptTemplate.from_messages(
 
 formatting_chain = formatter_prompt | structured_llm
 
+# this open tinkter
+def get_user_query():
+    root = tk.Tk()
+    root.withdraw()
+    query = simpledialog.askstring("Research Assistant", "Enter your query:")
+    root.destroy()
+    return query
+
+def display_result_window(output_data):
+    root = tk.Tk()
+    root.title("Research Result Output")
+    root.geometry("600x500")
+
+    text_widget = tk.Text(root, wrap=tk.WORD, font=("Arial", 11))
+    text_widget.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+    formatted_text = (
+        f"--- STRUCTURED RESULT ---\n\n"
+        f"ANSWER:\n{output_data.answer}\n\n"
+        f"SUMMARY:\n{output_data.summary}\n\n"
+        f"SOURCES:\n{output_data.source}\n\n"
+    )
+
+    text_widget.insert(tk.END, formatted_text)
+    text_widget.config(state=tk.DISABLED)
+
+    root.mainloop()
+
 # this is the loop which makes the agent remmember the history
 if __name__ == "__main__":
     while True:
-        query = input("\nEnter your query: ")
-        if query.lower() in ["quit", "exit"]:
+        query = get_user_query()
+        if not query or query.lower() in ["quit", "exit"]:
             break
 
         past_history = load_file_history()
@@ -90,9 +119,9 @@ if __name__ == "__main__":
             f"Answer: {structured_output.answer}\n"
             f"Summary: {structured_output.summary}\n"
             f"Sources: {structured_output.source}\n"
-            f"Tools Used: {', '.join(structured_output.tools_used)}"
         )
         history(record_entry)
 
         print("\n--- Structured Result ---")
         print(structured_output)
+        display_result_window(structured_output)

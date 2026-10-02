@@ -6,3 +6,4 @@ ddgs
 langchain-groq
 python-dotenv
 pydantic
+tkinter
